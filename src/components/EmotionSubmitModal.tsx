@@ -28,7 +28,7 @@ const emotionOptions = [
 ];
 
 const timeCapsuleOptions = [
-  { value: '', label: 'Send now', description: 'Appears immediately in the galaxy' },
+  { value: 'now', label: 'Send now', description: 'Appears immediately in the galaxy' },
   { value: '1d', label: '1 Day', description: 'Appears tomorrow' },
   { value: '1w', label: '1 Week', description: 'Appears in a week' },
   { value: '1m', label: '1 Month', description: 'Appears in a month' },
@@ -38,7 +38,7 @@ const timeCapsuleOptions = [
 export function EmotionSubmitModal({ isOpen, onClose, onSubmit }: EmotionSubmitModalProps) {
   const [emotion, setEmotion] = useState<EmotionType>('joy');
   const [message, setMessage] = useState('');
-  const [timeCapsule, setTimeCapsule] = useState('');
+  const [timeCapsule, setTimeCapsule] = useState('now');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -47,7 +47,7 @@ export function EmotionSubmitModal({ isOpen, onClose, onSubmit }: EmotionSubmitM
 
     setIsSubmitting(true);
     
-    const timeCapsuleDate = timeCapsule ? calculateTimeCapsuleDate(timeCapsule) : undefined;
+    const timeCapsuleDate = timeCapsule && timeCapsule !== 'now' ? calculateTimeCapsuleDate(timeCapsule) : undefined;
     
     try {
       await onSubmit({
@@ -59,7 +59,7 @@ export function EmotionSubmitModal({ isOpen, onClose, onSubmit }: EmotionSubmitM
       // Reset form
       setMessage('');
       setEmotion('joy');
-      setTimeCapsule('');
+      setTimeCapsule('now');
       onClose();
     } catch (error) {
       console.error('Failed to submit emotion:', error);
