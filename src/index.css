@@ -2,96 +2,168 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Echoes of the Heart - Cosmic Emotional Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Deep Space Background Palette */
+    --space-void: 240 15% 5%;
+    --space-deep: 245 20% 8%;
+    --space-nebula: 250 25% 12%;
+    --space-surface: 255 15% 18%;
+    
+    /* Cosmic Text Colors */
+    --stellar-white: 0 0% 98%;
+    --cosmic-silver: 220 10% 85%;
+    --nebula-mist: 230 15% 65%;
+    --star-dust: 240 8% 45%;
+    
+    /* Emotional Star Colors */
+    --joy-star: 45 95% 65%;        /* Golden sunshine */
+    --hope-star: 195 85% 60%;      /* Cosmic cyan */
+    --longing-star: 270 75% 70%;   /* Deep violet */
+    --passion-star: 340 85% 65%;   /* Stellar pink */
+    --sadness-star: 210 70% 55%;   /* Ocean blue */
+    
+    /* Emotional Glow Effects */
+    --joy-glow: 45 95% 65%;
+    --hope-glow: 195 85% 60%;
+    --longing-glow: 270 75% 70%;
+    --passion-glow: 340 85% 65%;
+    --sadness-glow: 210 70% 55%;
+    
+    /* UI Elements */
+    --cosmic-border: 240 20% 20%;
+    --stellar-input: 245 25% 15%;
+    --nebula-hover: 250 30% 25%;
+    
+    /* System Colors */
+    --background: var(--space-void);
+    --foreground: var(--stellar-white);
+    --card: var(--space-deep);
+    --card-foreground: var(--stellar-white);
+    --popover: var(--space-nebula);
+    --popover-foreground: var(--stellar-white);
+    --primary: var(--hope-star);
+    --primary-foreground: var(--space-void);
+    --secondary: var(--space-surface);
+    --secondary-foreground: var(--stellar-white);
+    --muted: var(--space-nebula);
+    --muted-foreground: var(--nebula-mist);
+    --accent: var(--longing-star);
+    --accent-foreground: var(--stellar-white);
+    --destructive: 0 75% 60%;
+    --destructive-foreground: var(--stellar-white);
+    --border: var(--cosmic-border);
+    --input: var(--stellar-input);
+    --ring: var(--hope-glow);
+    --radius: 1rem;
+    
+    /* Gradients */
+    --galaxy-bg: linear-gradient(135deg, hsl(var(--space-void)), hsl(var(--space-deep)), hsl(var(--space-nebula)));
+    --stellar-gradient: linear-gradient(45deg, hsl(var(--hope-star)), hsl(var(--passion-star)));
+    --nebula-gradient: linear-gradient(180deg, hsl(var(--longing-star)), hsl(var(--sadness-star)));
+    --cosmic-shimmer: linear-gradient(90deg, transparent, hsl(var(--stellar-white) / 0.1), transparent);
+    
+    /* Animations */
+    --float-duration: 6s;
+    --pulse-duration: 2s;
+    --shimmer-duration: 3s;
   }
+}
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+@layer components {
+  /* Cosmic Glow Effects */
+  .glow-joy { 
+    box-shadow: 0 0 20px hsl(var(--joy-glow) / 0.5), 0 0 40px hsl(var(--joy-glow) / 0.3), 0 0 60px hsl(var(--joy-glow) / 0.1);
   }
+  .glow-hope { 
+    box-shadow: 0 0 20px hsl(var(--hope-glow) / 0.5), 0 0 40px hsl(var(--hope-glow) / 0.3), 0 0 60px hsl(var(--hope-glow) / 0.1);
+  }
+  .glow-longing { 
+    box-shadow: 0 0 20px hsl(var(--longing-glow) / 0.5), 0 0 40px hsl(var(--longing-glow) / 0.3), 0 0 60px hsl(var(--longing-glow) / 0.1);
+  }
+  .glow-passion { 
+    box-shadow: 0 0 20px hsl(var(--passion-glow) / 0.5), 0 0 40px hsl(var(--passion-glow) / 0.3), 0 0 60px hsl(var(--passion-glow) / 0.1);
+  }
+  .glow-sadness { 
+    box-shadow: 0 0 20px hsl(var(--sadness-glow) / 0.5), 0 0 40px hsl(var(--sadness-glow) / 0.3), 0 0 60px hsl(var(--sadness-glow) / 0.1);
+  }
+  
+  /* Galaxy Background */
+  .galaxy-bg {
+    background: var(--galaxy-bg);
+    position: relative;
+  }
+  
+  .galaxy-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 30%, hsl(var(--longing-star) / 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, hsl(var(--hope-star) / 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, hsl(var(--passion-star) / 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  /* Floating Animation */
+  .float {
+    animation: float var(--float-duration) ease-in-out infinite;
+  }
+  
+  /* Stellar Pulse */
+  .stellar-pulse {
+    animation: stellar-pulse var(--pulse-duration) ease-in-out infinite alternate;
+  }
+  
+  /* Cosmic Shimmer */
+  .cosmic-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cosmic-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--cosmic-shimmer);
+    animation: shimmer var(--shimmer-duration) ease-in-out infinite;
+  }
+  
+  /* Glass Morphism */
+  .glass-cosmic {
+    background: hsl(var(--space-surface) / 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--cosmic-border) / 0.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@keyframes stellar-pulse {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
 }
 
 @layer base {
@@ -100,6 +172,13 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    background: var(--galaxy-bg);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
   }
 }
