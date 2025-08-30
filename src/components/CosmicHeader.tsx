@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Plus, Globe, Users } from 'lucide-react';
+import { Plus, Globe, Users, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 interface CosmicHeaderProps {
   onAddEmotion: () => void;
@@ -59,6 +60,15 @@ export function CosmicHeader({ onAddEmotion, totalStars, globalConnections }: Co
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
+            <Link to="/about">
+              <Button 
+                variant="ghost" 
+                className="text-nebula-mist hover:text-emotions-hope transition-colors hidden sm:flex"
+              >
+                <Info className="w-4 h-4 mr-2" />
+                About
+              </Button>
+            </Link>
             <Button
               onClick={onAddEmotion}
               className="bg-gradient-to-r from-emotions-passion to-emotions-hope hover:scale-105 transition-all duration-300 glow-passion"

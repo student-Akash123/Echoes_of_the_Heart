@@ -5,6 +5,7 @@ import { ConstellationSidebar, EmotionType } from '@/components/ConstellationSid
 import { EmotionSubmitModal } from '@/components/EmotionSubmitModal';
 import { StarDetailModal } from '@/components/StarDetailModal';
 import { CosmicHeader } from '@/components/CosmicHeader';
+import { CosmicFooter } from '@/components/CosmicFooter';
 import { toast } from 'sonner';
 
 interface EmotionData {
@@ -274,6 +275,9 @@ const Index = () => {
         onClose={() => setSelectedStar(null)}
         onStardust={handleStardust}
       />
+
+      {/* Footer */}
+      <CosmicFooter />
     </div>
   );
 };
